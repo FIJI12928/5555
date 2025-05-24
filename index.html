@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ใส่รหัสเพื่อดูภาพคำใบ้</title>
+  <style>
+    body {
+      background-color: #fff8f0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      min-height: 100vh;
+      padding: 30px 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 80%;
+      max-width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #clueImage {
+      margin-top: 30px;
+      max-width: 100%;
+      height: auto;
+      border: 3px solid #4CAF50;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      display: none;
+    }
+
+    #error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>กรอกรหัสผ่านเพื่อปลดล็อกภาพคำใบ้</h1>
+
+  <input type="password" id="passwordInput" placeholder="รหัสผ่าน">
+  <button onclick="checkPassword()">ตกลง</button>
+
+  <div id="error"></div>
+
+  <img id="clueImage" alt="คำใบ้">
+
+  <script>
+    const correctPassword = "cheese";
+    const imageURL = "https://i.postimg.cc/fTgrGQ4D/image.jpg"; // URL จริงของภาพ
+
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      const clueImage = document.getElementById("clueImage");
+      const error = document.getElementById("error");
+
+      if (input.toLowerCase() === correctPassword) {
+        clueImage.src = imageURL;
+        clueImage.style.display = "block";
+        error.textContent = "";
+      } else {
+        clueImage.src = "";
+        clueImage.style.display = "none";
+        error.textContent = "รหัสผ่านไม่ถูกต้อง ลองใหม่อีกครั้ง";
+      }
+    }
+  </script>
+</body>
+</html>
