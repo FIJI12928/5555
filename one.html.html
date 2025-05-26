@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ตามหาพี่</title>
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+      background-color: #f0f8ff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px 0;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      margin-top: 15px;
+      border-radius: 10px;
+      border: 1px solid #aaa;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .answer {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #333;
+      display: none;
+    }
+
+    .hint-image {
+      max-width: 500px;
+      width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin: 30px 0 20px 0; /* เพิ่ม margin-top 30px เพื่อเว้นช่องบนให้พอดี */
+      align-self: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>😎ตามหาหาพี่รหัสของคุณ💖</h2>
+    <input type="text" id="passwordInput" placeholder="สู้ๆจ้า😁" />
+    <br />
+    <button onclick="checkPassword()">ยืนยัน</button>
+    <div class="answer" id="answerBox">
+      🎉 พี่รหัสของคุณคือ <strong>ชีส</strong> 🧀
+    </div>
+  </div>
+
+  <img
+    class="hint-image"
+    src="https://i.postimg.cc/PrjLnrJV/Password-1.jpg"
+    alt="คำใบ้"
+  />
+
+  <script>
+    const correctPassword = "Password"; // รหัสผ่าน
+
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value.trim();
+      if (input === correctPassword) {
+        document.getElementById("answerBox").style.display = "block";
+      } else {
+        alert("รหัสไม่ถูกต้อง ลองใหม่อีกครั้งนะ!");
+      }
+    }
+  </script>
+</body>
+</html>
